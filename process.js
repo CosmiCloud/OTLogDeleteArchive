@@ -6,7 +6,7 @@ var container = process.env.CONTAINER;
 var logPath = '/var/lib/docker/containers/'+container+'/'+container+'-json.log';
 var date = new Date();
 var date = date.getMonth();
-var master = 'sudo mkdir ~/NodeArchive && sudo cp '+logPath+' ~/NodeArchive/nodeLogs && sudo tar -czf ~/NodeArchive/nodeLogs_month'+date+'.tar ~/NodeArchive/nodeLogs && sudo rm -rf ~/NodeArchive/nodeLogs'
+var master = 'sudo mkdir -p ~/NodeArchive && sudo cp '+logPath+' ~/NodeArchive/nodeLogs && sudo tar -czf ~/NodeArchive/nodeLogs_month'+date+'.tar ~/NodeArchive/nodeLogs && sudo rm -rf ~/NodeArchive/nodeLogs'
 
 exec(master, (error, stdout, stderr) => {});
 
