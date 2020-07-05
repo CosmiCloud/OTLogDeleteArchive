@@ -5,7 +5,6 @@ require('dotenv').config();
 
 var container = process.env.CONTAINER;
 var logPath = '/var/lib/docker/containers/'+container+'/'+container+'-json.log';
-var date = new Date();
 var date = dateFormat(new Date(), "yyyy-mm-dd-h:MM:ss");
 var master = 'sudo mkdir -p ~/NodeArchive && sudo cp '+logPath+' ~/NodeArchive/nodeLogs && sudo tar -czf ~/NodeArchive/nodeLogs_'+date+'.tar ~/NodeArchive/nodeLogs && sudo rm -rf ~/NodeArchive/nodeLogs'
 
